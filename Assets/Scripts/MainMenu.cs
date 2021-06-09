@@ -132,6 +132,9 @@ public class MainMenu : MonoBehaviour
         StartMenu.SetActive(true);
         GameMenu.SetActive(false);
         GameScreen.SetActive(false);
+        StartCoroutine(StartMenu.GetComponentInChildren<SequentialAnimator>().Play());
+        yield return null;
+
     }
 
     public IEnumerator PlayNextRound()
@@ -139,6 +142,7 @@ public class MainMenu : MonoBehaviour
         NextRound.SetActive(true);
         yield return new WaitForSeconds(2f);
         NextRound.SetActive(false);
+        PlayComputer();
     }
 
     private void StartGame()
