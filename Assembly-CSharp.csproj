@@ -58,9 +58,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\MainMenu.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\GameMenu.cs" />
+     <Compile Include="Assets\Scripts\PlayerData\PlayerStats.cs" />
      <Compile Include="Assets\Scripts\SceneLoader.cs" />
-     <Compile Include="Assets\Scripts\SequentialAnimator.cs" />
+     <Compile Include="Assets\Scripts\Utils\ClickableObject.cs" />
+     <Compile Include="Assets\Scripts\Utils\SequentialAnimator.cs" />
+     <Compile Include="Assets\Scripts\Utils\Timer.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/Users/dijain/RiderProjects/RPSLS/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

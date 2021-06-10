@@ -5,33 +5,22 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// Handles Loading Game Scene And Quit App functions
+/// </summary>
 public class SceneLoader : MonoBehaviour
 {
-    public Slider _loadBar;
-    public Text _loadText;
     public int _loadSceneAtIndex;
 
-    private void Start()
+    public void OnPlayGame()
     {
-        LoadLevel(_loadSceneAtIndex);
+        //Loads Game Scene
+        AsyncOperation operation = SceneManager.LoadSceneAsync(_loadSceneAtIndex);
     }
-
-    private void LoadLevel(int sceneIndex)
+    
+    public void OnQuitGame()
     {
-        StartCoroutine(LoadAsynchronously(sceneIndex));
-    }
-
-    IEnumerator LoadAsynchronously(int index)
-    {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(index);
-
-        while (!operation.isDone)
-        {
-            float progress = Mathf.Clamp01(operation.progress / .9f);
-            _loadBar.value = progress;
-            _loadText.text = progress * 100 + "%";
-            Debug.Log(operation.progress);
-            yield return null;
-        }
+        //quits the game
+        Application.Quit();
     }
 }
